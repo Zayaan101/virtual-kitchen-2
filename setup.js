@@ -8,6 +8,7 @@ const pool = new Pool({
 
 const createTables = async () => {
   try {
+    // Create users table if it doesn't exist
     await pool.query(
       'CREATE TABLE IF NOT EXISTS users (' +
       'uid SERIAL PRIMARY KEY, ' +
@@ -16,6 +17,7 @@ const createTables = async () => {
       'password VARCHAR(255) NOT NULL);'
     );
 
+    // Create recipes table if it doesn't exist
     await pool.query(
       'CREATE TABLE IF NOT EXISTS recipes (' +
       'rid SERIAL PRIMARY KEY, ' +
